@@ -1,0 +1,58 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Employee{
+    private:
+    double monthlySalary;
+    float taxPercentage;
+    public:
+    string name;
+    void setValues(double ms, float tp){
+        monthlySalary=ms;
+        taxPercentage=tp;
+    }
+    void getData(){
+        cout<<"Enter the Employee name: ";
+        cin>>name;
+        cout<<"Enter the Employee's monthly salary: ";
+        cin>>monthlySalary;
+        cout<<"Enter the Employee's tax percentage: ";
+        cin>>taxPercentage;
+    }
+    double salaryAfterTax(){
+        double salaryAfterDeduction = monthlySalary * (1 - taxPercentage / 100);
+        return salaryAfterDeduction;
+    }
+    void UpdateTaxPercentage(){
+        int choice;
+        float newTaxPercentage;
+        cout<<"Do you want to update the tax percentage? Enter 1 for yes & 0 for no: ";
+        cin>>choice;
+        if(choice == 1){
+            cout<<"Enter the new value of tax percentage: ";
+            cin>>newTaxPercentage;
+            taxPercentage=newTaxPercentage;
+        }
+        else if(choice == 0){
+            cout<<"Exiting program!";
+        }
+        else{
+            cout<<"Invalid input!";
+        }
+    }
+    void displaySalaryDetails() {
+        cout << "Employee: " << name << endl;
+        cout << "Original salary: " << monthlySalary << endl;
+        cout << "Salary after tax deduction: " << salaryAfterTax() << endl;
+    }
+};
+
+int main(){
+    Employee e1;
+    e1.getData();
+    e1.displaySalaryDetails();
+    e1.UpdateTaxPercentage();
+    e1.displaySalaryDetails();
+    return 0;
+}
