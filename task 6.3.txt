@@ -1,0 +1,27 @@
+#include <iostream>
+#include "Employee.h"
+using namespace std;
+
+int main() {
+    Employee e1, e2, e3;
+    cout << "Enter data for Employee 1:" << endl;
+    e1.getData();
+    e1.displaySalaryDetails(); 
+    cout << "\nEnter data for Employee 2:" << endl;
+    e2.getData();
+    e2.displaySalaryDetails(); 
+    cout << "\nEnter data for Employee 3:" << endl;
+    e3.getData();
+    e3.displaySalaryDetails(); 
+    cout << "\nUpdating tax percentage for Employee 1..." << endl;
+    e1.updateTaxPercentage();
+    e1.displaySalaryDetails();
+    cout << "\nUpdating tax percentage for Employee 2..." << endl;
+    e2.updateTaxPercentage();
+    e2.displaySalaryDetails();
+    cout << "\nUpdating tax percentage for Employee 3..." << endl;
+    e3.updateTaxPercentage();
+    e3.displaySalaryDetails();
+
+    return 0;
+}

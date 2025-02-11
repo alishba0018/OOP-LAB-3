@@ -1,0 +1,40 @@
+#include "Employee.h"
+#include <iostream>
+using namespace std;
+
+Employee::Employee() {
+    monthlySalary = 0.0;
+    taxPercentage = 2.0;  
+}
+void Employee::getData() {
+    cout << "Enter the Employee name: ";
+    cin >> name;
+    cout << "Enter the Employee's monthly salary: ";
+    cin >> monthlySalary;
+    cout << "Enter the Employee's tax percentage: ";
+    cin >> taxPercentage;
+}
+double Employee::salaryAfterTax(){
+    return monthlySalary * (1 - taxPercentage / 100);
+}
+void Employee::updateTaxPercentage() {
+    int choice;
+    float newTaxPercentage;
+    cout << "Do you want to update the tax percentage? Enter 1 for yes & 0 for no: ";
+    cin >> choice;
+    if (choice == 1) {
+        cout << "Enter the new value of tax percentage: ";
+        cin >> newTaxPercentage;
+        taxPercentage = newTaxPercentage;
+        cout << "Tax percentage updated to " << taxPercentage << "%" << endl;
+    } else if (choice == 0) {
+        cout << "No changes made to the tax percentage." << endl;
+    } else {
+        cout << "Invalid input!" << endl;
+    }
+}
+void Employee::displaySalaryDetails() {
+    cout << "Employee: " << name << endl;
+    cout << "Original salary: " << monthlySalary << endl;
+    cout << "Salary after tax deduction: " << salaryAfterTax() << endl;
+}
